@@ -18,10 +18,7 @@
   (package-refresh-contents)
   (package-install 'zerodark-theme))
  
-(defvar my-term-shell "/bin/bash")
-(defadvice ansi-term (before force-bash)
-  (interactive (list my-term-shell)))
-(ad-activate 'ansi-term)
+(org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
  
 (defalias 'yes-or-no-p 'y-or-n-p)
  
