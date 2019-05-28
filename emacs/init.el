@@ -14,10 +14,6 @@
   (package-refresh-contents)
   (package-install 'use-package))
  
-(unless (package-installed-p 'zerodark-theme)
-  (package-refresh-contents)
-  (package-install 'zerodark-theme))
- 
 (org-babel-load-file (expand-file-name "~/.emacs.d/config.org"))
  
 (defalias 'yes-or-no-p 'y-or-n-p)
@@ -28,6 +24,11 @@
   :ensure t
   :init
   (which-key-mode))
+
+(use-package zerodark-theme
+  :ensure t
+  :init
+    (load-theme 'zerodark t))
  
 (tool-bar-mode -1)
 (menu-bar-mode -1)
