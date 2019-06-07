@@ -37,6 +37,9 @@
 (scroll-bar-mode -1)
 (show-paren-mode 1)
 (global-subword-mode 1)
+
+(add-to-list 'org-structure-template-alist
+	       '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
  
 (defun split-and-follow-horizontally ()
   (interactive)
