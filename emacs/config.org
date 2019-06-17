@@ -134,7 +134,6 @@ Vim keybindings are just too good
   (use-package evil
     :config (evil-mode))
 #+END_SRC
-4
 ** Relative line numbers
 #+BEGIN_SRC emacs-lisp
   (use-package linum-relative
