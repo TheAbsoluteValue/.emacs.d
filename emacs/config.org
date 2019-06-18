@@ -73,6 +73,7 @@ Makes it so the screen doesn't jump when I scroll past the bottom of the view
 #+BEGIN_SRC emacs-lisp
   (setq line-number-mode t)
   (setq column-number-mode t)
+  (setq-default display-line-numbers 'relative)
 #+END_SRC
 * Theme and modeline
 ** Zero-dark theme
@@ -108,8 +109,8 @@ A modeline that is aesthetically pleasing
 #+END_SRC
 ** Remove line numbers for terminals and shells
 #+BEGIN_SRC emacs-lisp
-  (add-hook 'eshell-mode-hook (lambda () (linum-relative-global-mode nil)))
-  (add-hook 'term-mode-hook (lambda () (linum-relative-global-mode nil)))
+  (add-hook 'eshell-mode-hook (lambda () (setq-local display-line-numbers nil)))
+  (add-hook 'term-mode-hook (lambda () (setq-local display-line-numbers nil)))
 #+END_SRC
 * Help
 Packages and configs that help me with Emacs
@@ -123,21 +124,22 @@ Packages and configs that help me with Emacs
 #+BEGIN_SRC emacs-lisp
   (use-package general :ensure t
       :config
-      (general-define-key
-	  :states '(normal visual insert emacs)
-	  :prefix "SPC"
-	  :non-normal-prefix "C-SPC"
-
-	  ;; simple command
-	  "TAB" '(switch-to-other-buffer :which-key "prev buffer")
+      (general-create-definer my-general-def
+	:prefix "SPC"
+	:states '(normal visual emacs))
+      (my-general-def
+	  ;; Avy
+	  "SPC" '(avy-goto-char :which-key "avy-goto-char")
 
 	  ;; Git
 	  "g" '(:ignore t :which-key "Git")
 	  "gs" 'magit-status 
-	
+	  "gp" 'magit-pull-from-upstream
+
 	  ;; Applications
 	  "a" '(:ignore t :which-key "Applications")
 	  "ad" 'dired))
+
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
@@ -154,13 +156,6 @@ Vim keybindings are just too good
   (use-package evil
     :config (evil-mode))
 #+END_SRC
-** Relative line numbers
-#+BEGIN_SRC emacs-lisp
-  (use-package linum-relative
-    :config
-      (setq linum-relative-current-symbol "")
-      (linum-relative-global-mode t))
-#+END_SRC
 ** Windmove
 Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
@@ -175,8 +170,21 @@ Allows easy transition between windows using Shift+Arrows.
   (add-hook 'org-shiftdown-final-hook 'windmove-down)
   (add-hook 'org-shiftright-final-hook 'windmove-right)
 #+END_SRC
-* Version control
+** Avy
+#+BEGIN_SRC emacs-lisp
+  (use-package avy
+    :ensure t
+    :config (setq avy-background t))
+#+END_SRC
+* Version control and projects
 ** Magit
 #+BEGIN_SRC emacs-lisp
   (use-package magit)
+#+END_SRC
+** Projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package projectile
+      :config
+      (my-general-def
+	  "p" '(projectile-command-map :ignore t :which-key "Projectile")))
 #+END_SRC
