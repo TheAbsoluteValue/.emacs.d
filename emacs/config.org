@@ -128,18 +128,9 @@ Packages and configs that help me with Emacs
 	:prefix "SPC"
 	:states '(normal visual emacs))
       (my-general-def
-	  ;; Avy
-	  "SPC" '(avy-goto-char :which-key "avy-goto-char")
-
-	  ;; Git
-	  "g" '(:ignore t :which-key "Git")
-	  "gs" 'magit-status 
-	  "gp" 'magit-pull-from-upstream
-
 	  ;; Applications
 	  "a" '(:ignore t :which-key "Applications")
 	  "ad" 'dired))
-
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
@@ -174,12 +165,20 @@ Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
   (use-package avy
     :ensure t
-    :config (setq avy-background t))
+    :config
+    (setq avy-background t)
+    (my-general-def
+      "SPC" 'avy-goto-char))
 #+END_SRC
 * Version control and projects
 ** Magit
 #+BEGIN_SRC emacs-lisp
-  (use-package magit)
+  (use-package magit
+    :config
+    (my-general-def
+      "g" '(:ignore t :which-key "Git")
+      "gs" 'magit-status 
+      "gp" 'magit-pull-from-upstream))
 #+END_SRC
 ** Projectile
 #+BEGIN_SRC emacs-lisp
