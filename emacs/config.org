@@ -112,12 +112,32 @@ A modeline that is aesthetically pleasing
   (add-hook 'term-mode-hook (lambda () (linum-relative-global-mode nil)))
 #+END_SRC
 * Help
-Packages and configs that help me learn Emacs
+Packages and configs that help me with Emacs
 ** Which-key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
     :init
     (which-key-mode))
+#+END_SRC
+** General
+#+BEGIN_SRC emacs-lisp
+  (use-package general :ensure t
+      :config
+      (general-define-key
+	  :states '(normal visual insert emacs)
+	  :prefix "SPC"
+	  :non-normal-prefix "C-SPC"
+
+	  ;; simple command
+	  "TAB" '(switch-to-other-buffer :which-key "prev buffer")
+
+	  ;; Git
+	  "g" '(:ignore t :which-key "Git")
+	  "gs" 'magit-status 
+	
+	  ;; Applications
+	  "a" '(:ignore t :which-key "Applications")
+	  "ad" 'dired))
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
@@ -140,4 +160,23 @@ Vim keybindings are just too good
     :config
       (setq linum-relative-current-symbol "")
       (linum-relative-global-mode t))
+#+END_SRC
+** Windmove
+Allows easy transition between windows using Shift+Arrows.
+#+BEGIN_SRC emacs-lisp
+  (use-package windmove
+    :config
+    (windmove-default-keybindings))
+#+END_SRC
+*** Make windmove work in Org-Mode
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-shiftup-final-hook 'windmove-up)
+  (add-hook 'org-shiftleft-final-hook 'windmove-left)
+  (add-hook 'org-shiftdown-final-hook 'windmove-down)
+  (add-hook 'org-shiftright-final-hook 'windmove-right)
+#+END_SRC
+* Version control
+** Magit
+#+BEGIN_SRC emacs-lisp
+  (use-package magit)
 #+END_SRC
