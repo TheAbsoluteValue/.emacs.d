@@ -126,11 +126,24 @@ Packages and configs that help me with Emacs
       :config
       (general-create-definer my-general-def
 	:prefix "SPC"
+	:keymaps 'override
 	:states '(normal visual emacs))
+      ;; Easy shortcuts
       (my-general-def
-	  ;; Applications
-	  "a" '(:ignore t :which-key "Applications")
-	  "ad" 'dired))
+	;; Windows
+	"w" '(:ignore t :which-key "Windows")
+	"wm" 'delete-other-windows
+	"wd" 'delete-window
+	"w/" 'split-and-follow-vertically
+	"w-" 'split-and-follow-horizontally
+
+	;; Buffers
+	"b" '(:ignore t :which-key "Buffers")
+	"bd" 'kill-this-buffer
+
+	;; Applications
+	"a" '(:ignore t :which-key "Applications")
+	"ad" 'dired))
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
@@ -186,4 +199,34 @@ Allows easy transition between windows using Shift+Arrows.
       :config
       (my-general-def
 	  "p" '(projectile-command-map :which-key "Projectile")))
+#+END_SRC
+** Helm
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+      :diminish helm-mode
+      :init
+	  (progn
+	      (require 'helm-config)
+	      (setq helm-candidate-number-limit 100)
+	      (setq helm-idle-delay 0.0
+		  helm-input-idle-delay 0.01
+		  helm-yas-display-key-on-candidate t
+		  helm-quick-update t
+		  helm-M-x-requires-pattern nil
+		  helm-ff-skip-boring-files t)
+		  (helm-mode))
+      :bind
+	  (("C-h a" . helm-apropos)
+	  ("M-y" . helm-show-kill-ring)
+	  ("M-x" . helm-M-x)
+	  ("C-x c o" . helm-occur)
+	  ("C-x c s" . helm-swoop)
+	  ("C-x c y" . helm-yas-complete)
+	  ("C-x c Y" . helm-yas-create-snippet-on-region)
+	  ("C-x c SPC" . helm-all-mark-rings))
+      :config
+	  (my-general-def
+	    "bb" 'helm-mini
+	    "bl" 'helm-buffers-list))
+
 #+END_SRC
