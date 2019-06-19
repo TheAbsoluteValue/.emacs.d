@@ -155,10 +155,22 @@ Any configs and packages relating to Org-mode
 * Text manipulation and navigation
 ** Evil
 Vim keybindings are just too good
-*** Import package
+*** Import base
 #+BEGIN_SRC emacs-lisp
   (use-package evil
     :config (evil-mode))
+#+END_SRC
+*** Surround
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-surround
+    :config
+    (global-evil-surround-mode 1))
+#+END_SRC
+*** Commentary
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-commentary
+      :config
+      (evil-commentary-mode))
 #+END_SRC
 ** Windmove
 Allows easy transition between windows using Shift+Arrows.
