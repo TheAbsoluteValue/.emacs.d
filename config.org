@@ -185,5 +185,5 @@ Allows easy transition between windows using Shift+Arrows.
   (use-package projectile
       :config
       (my-general-def
-	  "p" '(projectile-command-map :ignore t :which-key "Projectile")))
+	  "p" '(projectile-command-map :which-key "Projectile")))
 #+END_SRC
