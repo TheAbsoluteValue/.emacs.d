@@ -284,7 +284,15 @@ Functions and bindings that make Emacs easier to use for me
     (interactive)
     (find-file "~/.emacs.d/config.org"))
 
+  (defun my/open-both ()
+    (interactive)
+    (delete-other-windows)
+    (my/goto-initel)
+    (split-and-follow-vertically)
+    (my/goto-configorg))
+
   (my-general-def
     "fed" '(my/goto-initel :which-key "init.el")
-    "fec" '(my/goto-configorg :which-key "config.org"))
+    "fec" '(my/goto-configorg :which-key "config.org")
+    "feb" '(my/open-both :which-key "open both"))
 #+END_SRC
