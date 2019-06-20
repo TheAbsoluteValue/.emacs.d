@@ -140,6 +140,9 @@ Packages and configs that help me with Emacs
 	;; Fun
 	"$" '(:ignore t :which-key "Fun")
 
+	;; Files
+	"f" '(:ignore t :which-key "Files")
+
 	;; Buffers
 	"b" '(:ignore t :which-key "Buffers")
 	"bd" 'kill-this-buffer
@@ -253,4 +256,35 @@ Allows easy transition between windows using Shift+Arrows.
     :config
     (my-general-def
       "$f" 'fireplace))
+#+END_SRC
+* Convenience
+Functions and bindings that make Emacs easier to use for me
+** Save and reload init.el
+#+BEGIN_SRC emacs-lisp
+  (defun my/reloadinit ()
+    (interactive)
+    (load-file "~/.emacs.d/init.el"))
+
+  (my-general-def
+    "fer" '(my/reloadinit :which-key "reload init.el"))
+#+END_SRC
+** Save current buffer(s)
+#+BEGIN_SRC emacs-lisp
+  (my-general-def
+    "fs" 'save-buffer
+    "fS" 'save-some-buffers)
+#+END_SRC
+** Open init.el and config.org
+#+BEGIN_SRC emacs-lisp
+  (defun my/goto-initel ()
+    (interactive)
+    (find-file "~/.emacs.d/init.el"))
+
+  (defun my/goto-configorg ()
+    (interactive)
+    (find-file "~/.emacs.d/config.org"))
+
+  (my-general-def
+    "fed" '(my/goto-initel :which-key "init.el")
+    "fec" '(my/goto-configorg :which-key "config.org"))
 #+END_SRC
