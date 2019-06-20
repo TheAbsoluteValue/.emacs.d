@@ -178,6 +178,16 @@ Vim keybindings are just too good
       :config
       (evil-commentary-mode))
 #+END_SRC
+*** Multiple cursors
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-mc
+    :config
+    (global-evil-mc-mode 1))
+
+  (evil-define-key 'visual evil-mc-key-map
+    "A" #'evil-mc-make-cursor-in-visual-selection-end
+    "I" #'evil-mc-make-cursor-in-visual-selection-beg)
+#+END_SRC
 ** Windmove
 Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
