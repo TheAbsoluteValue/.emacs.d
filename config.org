@@ -211,6 +211,11 @@ Allows easy transition between windows using Shift+Arrows.
     (my-general-def
       "SPC" 'avy-goto-char))
 #+END_SRC
+** Auto complete
+#+BEGIN_SRC emacs-lisp
+  (use-package auto-complete
+    :config (ac-config-default))
+#+END_SRC
 * Version control and projects
 ** Magit
 #+BEGIN_SRC emacs-lisp
@@ -314,4 +319,18 @@ Functions and bindings that make Emacs easier to use for me
 
   (my-general-def
     "TAB" '(my/switch-to-last-buffer :which-key "previous buffer"))
+#+END_SRC
+* Languages
+Packages for specific languages
+** React/JS
+#+BEGIN_SRC emacs-lisp
+  (use-package rjsx-mode
+    :init (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode)))
+#+END_SRC
+** Web
+#+BEGIN_SRC emacs-lisp
+  (use-package web-mode
+    :init (progn
+	    (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
+	    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))))
 #+END_SRC
