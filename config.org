@@ -306,3 +306,12 @@ Functions and bindings that make Emacs easier to use for me
     "fec" '(my/goto-configorg :which-key "config.org")
     "feb" '(my/open-both :which-key "open both"))
 #+END_SRC
+** Switch to most recent buffer
+#+BEGIN_SRC emacs-lisp
+  (defun my/switch-to-last-buffer ()
+    (interactive)
+    (switch-to-buffer (other-buffer (current-buffer) 1)))
+
+  (my-general-def
+    "TAB" '(my/switch-to-last-buffer :which-key "previous buffer"))
+#+END_SRC
