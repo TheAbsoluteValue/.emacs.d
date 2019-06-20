@@ -137,6 +137,9 @@ Packages and configs that help me with Emacs
 	"w/" 'split-and-follow-vertically
 	"w-" 'split-and-follow-horizontally
 
+	;; Fun
+	"$" '(:ignore t :which-key "Fun")
+
 	;; Buffers
 	"b" '(:ignore t :which-key "Buffers")
 	"bd" 'kill-this-buffer
@@ -203,7 +206,8 @@ Allows easy transition between windows using Shift+Arrows.
     (my-general-def
       "g" '(:ignore t :which-key "Git")
       "gs" 'magit-status 
-      "gp" 'magit-pull-from-upstream))
+      "gp" 'magit-pull-from-upstream)
+    (add-hook 'with-editor-mode-hook 'evil-insert-state))
 #+END_SRC
 ** Projectile
 #+BEGIN_SRC emacs-lisp
@@ -241,4 +245,12 @@ Allows easy transition between windows using Shift+Arrows.
 	    "bb" 'helm-mini
 	    "bl" 'helm-buffers-list))
 
+#+END_SRC
+* Fun
+** Fireplace
+#+BEGIN_SRC emacs-lisp
+  (use-package fireplace
+    :config
+    (my-general-def
+      "$f" 'fireplace))
 #+END_SRC
