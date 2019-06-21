@@ -11,8 +11,8 @@
 (setq use-package-always-ensure t
       package-enable-at-startup nil)
 
-(when (file-readable-p "~/.emacs.d/config.org")
-  (org-babel-load-file (expand-file-name "~/.emacs.d/config.org")))
+(when (file-readable-p "~/.emacs.d/README.org")
+  (org-babel-load-file (expand-file-name "~/.emacs.d/README.org")))
 
 ;; expand region
 ;; emmet

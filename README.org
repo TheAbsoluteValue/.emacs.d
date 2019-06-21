@@ -390,7 +390,7 @@ Functions and bindings that make Emacs easier to use for me
     "fs" 'save-buffer
     "fS" 'save-some-buffers)
 #+END_SRC
-** Open init.el and config.org
+** Open init.el and README.org
 #+BEGIN_SRC emacs-lisp
   (defun my/goto-initel ()
     (interactive)
@@ -398,7 +398,7 @@ Functions and bindings that make Emacs easier to use for me
 
   (defun my/goto-configorg ()
     (interactive)
-    (find-file "~/.emacs.d/config.org"))
+    (find-file "~/.emacs.d/README.org"))
 
   (defun my/open-both ()
     (interactive)
@@ -409,7 +409,7 @@ Functions and bindings that make Emacs easier to use for me
 
   (my-general-def
     "fed" '(my/goto-initel :which-key "init.el")
-    "fec" '(my/goto-configorg :which-key "config.org")
+    "fec" '(my/goto-configorg :which-key "README.org")
     "feb" '(my/open-both :which-key "open both"))
 #+END_SRC
 ** Switch to most recent buffer
