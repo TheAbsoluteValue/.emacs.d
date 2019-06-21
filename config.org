@@ -75,6 +75,11 @@ Makes it so the screen doesn't jump when I scroll past the bottom of the view
   (setq column-number-mode t)
   (setq-default display-line-numbers 'relative)
 #+END_SRC
+** Remove startup message
+This will make way to use dashboard
+#+BEGIN_SRC emacs-lisp
+  (setq inhibit-startup-message t)
+#+END_SRC
 * Theme and modeline
 ** Zero-dark theme
 A theme that is aesthetically pleasing
@@ -94,6 +99,18 @@ A modeline that is aesthetically pleasing
   (use-package doom-modeline
         :ensure t
         :hook (after-init . doom-modeline-mode))
+#+END_SRC
+** Dashboard
+#+BEGIN_SRC emacs-lisp
+  (use-package dashboard
+    :config
+      (setq dashboard-items '((recents  . 8)
+			      (projects . 8)))
+      (setq dashboard-set-footer nil)
+      (setq dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
+      (setq dashboard-banner-logo-title "")
+      (setq dashboard-set-init-info nil)
+      (dashboard-setup-startup-hook))
 #+END_SRC
 * Terminal
 ** Set default terminal to bash
