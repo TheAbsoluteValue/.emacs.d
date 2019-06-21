@@ -295,6 +295,23 @@ Allows easy transition between windows using Shift+Arrows.
 	    "bl" 'helm-buffers-list
 	    "ff" 'helm-find-files))
 #+END_SRC
+** Helm Projectile
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-projectile
+    :config
+    (my-general-def
+      "pp" 'helm-projectile-switch-project
+      "pf" 'helm-projectile-find-file
+      "pF" 'helm-projectile-find-file-in-known-projects
+      "pg" 'helm-projectile-find-file-dwim
+      "pd" 'helm-projectile-find-dir
+      "pe" 'helm-projectile-recentf
+      "pb" 'helm-projectile-switch-to-buffer
+      "psg" 'helm-projectile-grep
+      "psr" 'helm-projectile-rg
+      "psa" 'helm-projectile-ag)
+    (helm-projectile-on))
+#+END_SRC
 * Fun
 ** Fireplace
 #+BEGIN_SRC emacs-lisp
