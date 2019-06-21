@@ -1,5 +1,5 @@
 * My Emacs config
-This file contains all the packages used in my emacs configuration in a nice and neat manner in order to precent against Emacs bankruptcy.
+This file contains all the packages used in my emacs configuration in a nice and neat manner in order to prevent against Emacs bankruptcy.
 * General
 Some general changes to improve QOL using Emacs for me. Usually just modified values that are already built into Emacs.
 ** Remove tool bar
