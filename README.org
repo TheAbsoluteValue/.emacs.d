@@ -431,6 +431,24 @@ Functions and bindings that make Emacs easier to use for me
   (my-general-def
     "p/" #'helm-projectile-rg)
 #+END_SRC
+** Open ansi-term in project root
+#+BEGIN_SRC emacs-lisp
+  (defun projectile-term ()
+    "Create an ansi-term at the project root"
+    (interactive)
+    (let ((buff-name (concat "ansi-term" (projectile-project-root))))
+      (if (get-buffer buff-name)
+	(switch-to-buffer-other-window buff-name)
+	(progn
+	  (split-window-sensibly (selected-window))
+	  (other-window 1)
+	  (setq default-directory (projectile-project-root))
+	  (ansi-term (getenv "SHELL"))
+	  (rename-buffer buff-name t)))))
+
+  (my-general-def
+    "p'" #'projectile-term)
+#+END_SRC
 * Languages
 Packages for specific languages
 ** React/JS
