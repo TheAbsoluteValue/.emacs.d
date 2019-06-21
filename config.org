@@ -292,8 +292,8 @@ Allows easy transition between windows using Shift+Arrows.
       :config
 	  (my-general-def
 	    "bb" 'helm-mini
-	    "bl" 'helm-buffers-list))
-
+	    "bl" 'helm-buffers-list
+	    "ff" 'helm-find-files))
 #+END_SRC
 * Fun
 ** Fireplace
@@ -364,4 +364,9 @@ Packages for specific languages
     :init (progn
 	    (add-to-list 'auto-mode-alist '("\\.jsp\\'" . web-mode))
 	    (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))))
+#+END_SRC
+** Groovy
+#+BEGIN_SRC emacs-lisp
+  (use-package groovy-mode
+      :init (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
 #+END_SRC
