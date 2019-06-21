@@ -326,10 +326,12 @@ Allows easy transition between windows using Shift+Arrows.
     (helm-projectile-on))
 #+END_SRC
 ** Helm ripgrep
+Super fast searching inside files
 #+BEGIN_SRC emacs-lisp
   (use-package helm-rg)
 #+END_SRC
 ** Neotree
+Gives a nice layout of my project directory if I'm in one. I would only use it if I'm inside a project, hence its configuration
 #+BEGIN_SRC emacs-lisp
   (use-package neotree
     :init
@@ -418,6 +420,16 @@ Functions and bindings that make Emacs easier to use for me
 
   (my-general-def
     "TAB" '(my/switch-to-last-buffer :which-key "previous buffer"))
+#+END_SRC
+** Easy search in current file
+#+BEGIN_SRC emacs-lisp
+  (my-general-def
+    "/" #'helm-occur)
+#+END_SRC
+** Easy search in current project
+#+BEGIN_SRC emacs-lisp
+  (my-general-def
+    "p/" #'helm-projectile-rg)
 #+END_SRC
 * Languages
 Packages for specific languages
