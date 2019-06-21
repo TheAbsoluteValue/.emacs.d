@@ -28,7 +28,7 @@
     ("e39ff005e524c331b08d613109bff0b55fc21c64914c4a243faa70f330015389" default)))
  '(package-selected-packages
    (quote
-    (helm-projectile groovy-mode dashboard web-mode rjsx-mode company evil-mc fireplace evil-commentary evil-surround helm avy general magit linum-relative evil doom-modeline zerodark-theme which-key use-package))))
+    (neotree helm-projectile groovy-mode dashboard web-mode rjsx-mode company evil-mc fireplace evil-commentary evil-surround helm avy general magit linum-relative evil doom-modeline zerodark-theme which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

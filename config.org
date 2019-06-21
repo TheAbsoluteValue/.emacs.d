@@ -1,3 +1,5 @@
+* My Emacs config
+This file contains all the packages used in my emacs configuration in a nice and neat manner in order to precent against Emacs bankruptcy.
 * General
 Some general changes to improve QOL using Emacs for me. Usually just modified values that are already built into Emacs.
 ** Remove tool bar
@@ -175,6 +177,17 @@ Any configs and packages relating to Org-mode
   (add-to-list 'org-structure-template-alist
                  '("el" "#+BEGIN_SRC emacs-lisp\n?\n#+END_SRC"))
 #+END_SRC
+** Toggle word wrap
+#+BEGIN_SRC emacs-lisp
+  (add-hook 'org-mode-hook #'toggle-truncate-lines)
+#+END_SRC
+** Turn off company
+#+BEGIN_SRC emacs-lisp
+  (defun my/turn-off-company ()
+    (company-mode -1))
+
+  (add-hook 'org-mode-hook #'my/turn-off-company)
+#+END_SRC
 * Text manipulation and navigation
 ** Evil
 Vim keybindings are just too good
@@ -311,6 +324,44 @@ Allows easy transition between windows using Shift+Arrows.
       "psr" 'helm-projectile-rg
       "psa" 'helm-projectile-ag)
     (helm-projectile-on))
+#+END_SRC
+** Helm ripgrep
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-rg)
+#+END_SRC
+** Neotree
+#+BEGIN_SRC emacs-lisp
+  (use-package neotree
+    :init
+    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
+    :config
+    (progn
+      (defun neotree-project-dir ()
+	"Open NeoTree using the git root."
+	(interactive)
+	(let ((project-dir (projectile-project-root))
+	      (file-name (buffer-file-name)))
+	  (neotree-toggle)
+	  (if project-dir
+	      (if (neo-global--window-exists-p)
+		  (progn
+		    (neotree-dir project-dir)
+		    (neotree-find file-name)
+		    (setq-local display-line-numbers nil)))
+	    (message "Could not find git project root."))))
+      (add-hook 'neotree-mode-hook
+		(lambda ()
+		  (define-key evil-normal-state-local-map (kbd "TAB") 'neotree-enter)
+		  (define-key evil-normal-state-local-map (kbd "SPC") 'neotree-quick-look)
+		  (define-key evil-normal-state-local-map (kbd "q") 'neotree-hide)
+		  (define-key evil-normal-state-local-map (kbd "RET") 'neotree-enter)
+		  (define-key evil-normal-state-local-map (kbd "g") 'neotree-refresh)
+		  (define-key evil-normal-state-local-map (kbd "n") 'neotree-next-line)
+		  (define-key evil-normal-state-local-map (kbd "p") 'neotree-previous-line)
+		  (define-key evil-normal-state-local-map (kbd "A") 'neotree-stretch-toggle)
+		  (define-key evil-normal-state-local-map (kbd "H") 'neotree-hidden-file-toggle)))
+      (my-general-def
+	"pt" #'neotree-project-dir)))
 #+END_SRC
 * Fun
 ** Fireplace
