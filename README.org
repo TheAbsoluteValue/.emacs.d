@@ -275,8 +275,10 @@ Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
   (use-package projectile
       :config
-      (my-general-def
-	  "p" '(projectile-command-map :which-key "Projectile")))
+      (progn
+	(my-general-def
+	  "p" '(projectile-command-map :which-key "Projectile"))
+	(projectile-mode +1)))
 #+END_SRC
 ** Helm
 #+BEGIN_SRC emacs-lisp
