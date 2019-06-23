@@ -275,10 +275,8 @@ Allows easy transition between windows using Shift+Arrows.
   (use-package helm-c-yasnippet
     :config
     (setq helm-yas-space-match-any-greedy t)
-    (my-general-def
-      "y" 'helm-yas-complete)
     (yas-global-mode 1)
-    (yas-load-directory "snippets/"))
+    (yas-load-directory "~/.emacs.d/snippets/"))
 #+END_SRC
 * Version control and projects
 ** Magit
