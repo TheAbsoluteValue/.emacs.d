@@ -218,6 +218,12 @@ Vim keybindings are just too good
     "A" #'evil-mc-make-cursor-in-visual-selection-end
     "I" #'evil-mc-make-cursor-in-visual-selection-beg)
 #+END_SRC
+*** Multi-edit
+#+BEGIN_SRC emacs-lisp
+  (use-package evil-multiedit
+    :config
+    (evil-multiedit-default-keybinds))
+#+END_SRC
 ** Windmove
 Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
@@ -241,7 +247,7 @@ Allows easy transition between windows using Shift+Arrows.
     (my-general-def
       "SPC" 'avy-goto-char))
 #+END_SRC
-** Auto complete
+** Company
 #+BEGIN_SRC emacs-lisp
   (use-package company
     :config
@@ -259,6 +265,20 @@ Allows easy transition between windows using Shift+Arrows.
       (define-key company-active-map (kbd "TAB") 'company-complete-common-or-cycle)
       (define-key company-active-map (kbd "<tab>") 'company-complete-common-or-cycle)
       (define-key company-active-map (kbd "S-TAB") 'company-select-previous)))
+#+END_SRC
+** YASnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+    :config
+    (yas-reload-all)
+    (yas-global-mode 1))
+  (use-package helm-c-yasnippet
+    :config
+    (setq helm-yas-space-match-any-greedy t)
+    (my-general-def
+      "y" 'helm-yas-complete)
+    (yas-global-mode 1)
+    (yas-load-directory "snippets/"))
 #+END_SRC
 * Version control and projects
 ** Magit
