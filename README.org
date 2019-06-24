@@ -499,3 +499,12 @@ Packages for specific languages
   (use-package groovy-mode
       :init (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
 #+END_SRC
+* Tools
+Special packages that I use alongside other modes
+** RestClient
+#+BEGIN_SRC emacs-lisp
+  (use-package restclient
+    :config
+    (my-general-def
+      "ar" 'restclient-mode))
+#+END_SRC
