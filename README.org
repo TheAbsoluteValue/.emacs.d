@@ -131,6 +131,17 @@ A modeline that is aesthetically pleasing
   (add-hook 'eshell-mode-hook (lambda () (setq-local display-line-numbers nil)))
   (add-hook 'term-mode-hook (lambda () (setq-local display-line-numbers nil)))
 #+END_SRC
+** Allow reverse search for C-r
+#+BEGIN_SRC emacs-lisp
+  (defun my/setup-term-mode ()
+    (evil-local-set-key 'insert (kbd "C-r") 'my/send-C-r))
+
+  (defun my/send-C-r ()
+    (interactive)
+    (term-send-raw-string "\C-r"))
+
+  (add-hook 'term-mode-hook 'my/setup-term-mode)
+#+END_SRC
 * Help
 Packages and configs that help me with Emacs
 ** Which-key
