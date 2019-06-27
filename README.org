@@ -508,3 +508,19 @@ Special packages that I use alongside other modes
     (my-general-def
       "ar" 'restclient-mode))
 #+END_SRC
+** Web beautify
+#+BEGIN_SRC emacs-lisp
+  (use-package web-beautify
+    :config
+    (progn
+      (eval-after-load 'js2-mode
+	'(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
+      (eval-after-load 'rjsx-mode
+	'(define-key rjsx-mode-map (kbd "C-c b") 'web-beautify-js))
+      (eval-after-load 'json-mode
+	'(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
+      (eval-after-load 'sgml-mode
+	'(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
+      (eval-after-load 'css-mode
+	'(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))))
+#+END_SRC
