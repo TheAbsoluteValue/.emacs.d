@@ -82,6 +82,10 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
 #+END_SRC
+** Set inferior lisp module
+#+BEGIN_SRC emacs-lisp
+  (setq inferior-lisp-buffer "/usr/share/doc/clisp")
+#+END_SRC
 * Theme and modeline
 ** Zero-dark theme
 A theme that is aesthetically pleasing
