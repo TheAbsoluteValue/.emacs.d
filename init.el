@@ -26,9 +26,10 @@
  '(custom-safe-themes
    (quote
     ("e39ff005e524c331b08d613109bff0b55fc21c64914c4a243faa70f330015389" default)))
+ '(inferior-lisp-program "/usr/bin/clisp")
  '(package-selected-packages
    (quote
-    (flycheck rust-mode restclient helm-c-yasnippet yasnippet evil-multiedit neotree helm-projectile groovy-mode dashboard web-mode rjsx-mode company evil-mc fireplace evil-commentary evil-surround helm avy general magit linum-relative evil doom-modeline zerodark-theme which-key use-package))))
+    (web-beautify flycheck rust-mode restclient helm-c-yasnippet yasnippet evil-multiedit neotree helm-projectile groovy-mode dashboard web-mode rjsx-mode company evil-mc fireplace evil-commentary evil-surround helm avy general magit linum-relative evil doom-modeline zerodark-theme which-key use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
