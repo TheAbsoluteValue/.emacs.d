@@ -181,6 +181,12 @@ Packages and configs that help me with Emacs
 	"a" '(:ignore t :which-key "Applications")
 	"ad" 'dired))
 #+END_SRC
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :init
+    (add-hook 'prog-mode-hook 'flycheck-mode))
+#+END_SRC
 * Org
 Any configs and packages relating to Org-mode
 ** Add elisp src snippet
@@ -498,6 +504,10 @@ Packages for specific languages
 #+BEGIN_SRC emacs-lisp
   (use-package groovy-mode
       :init (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
+#+END_SRC
+** Rust
+#+BEGIN_SRC emacs-lisp
+  (use-package rust-mode)
 #+END_SRC
 * Tools
 Special packages that I use alongside other modes
