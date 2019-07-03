@@ -510,8 +510,30 @@ Packages for specific languages
       :init (add-to-list 'auto-mode-alist '("\\.gradle\\'" . groovy-mode)))
 #+END_SRC
 ** Rust
+*** Base mode
 #+BEGIN_SRC emacs-lisp
   (use-package rust-mode)
+#+END_SRC
+*** Racer
+#+BEGIN_SRC emacs-lisp
+  (use-package racer
+    :init
+    (add-hook 'rust-mode-hook #'racer-mode)
+    (add-hook 'racer-mode-hook #'eldoc-mode)
+    :config
+    (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common))
+#+END_SRC
+*** Flycheck rust
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck-rust
+    :init
+    (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+#+END_SRC
+*** Cargo
+#+BEGIN_SRC emacs-lisp
+  (use-package cargo
+    :init
+    (add-hook 'rust-mode-hook 'cargo-minor-mode))
 #+END_SRC
 * Tools
 Special packages that I use alongside other modes
