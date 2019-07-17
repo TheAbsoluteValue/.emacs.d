@@ -90,14 +90,13 @@ This will make way to use dashboard
 ** Better copy paste
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
-=======
+#+END_SRC
 ** Enable winner mode
 #+BEGIN_SRC emacs-lisp
   (winner-mode 1)
   (my-general-def
     "wq" 'winner-undo
     "we" 'winner-redo)
->>>>>>> 9ae3d796a24ef28ae2058dab51116e6fbe880ddf
 #+END_SRC
 * Theme and modeline
 ** Zero-dark theme
