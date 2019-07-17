@@ -86,6 +86,10 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq inferior-lisp-buffer "/usr/share/doc/clisp")
 #+END_SRC
+** Better copy paste
+#+BEGIN_SRC emacs-lisp
+  (setq x-select-enable-clipboard t)
+#+END_SRC
 * Theme and modeline
 ** Zero-dark theme
 A theme that is aesthetically pleasing
@@ -186,10 +190,17 @@ Packages and configs that help me with Emacs
 	"ad" 'dired))
 #+END_SRC
 ** Flycheck
+*** Base
 #+BEGIN_SRC emacs-lisp
   (use-package flycheck
     :init
     (add-hook 'prog-mode-hook 'flycheck-mode))
+#+END_SRC
+*** Inline
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck-inline
+    :init
+    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
