@@ -86,9 +86,18 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq inferior-lisp-buffer "/usr/share/doc/clisp")
 #+END_SRC
+<<<<<<< HEAD
 ** Better copy paste
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
+=======
+** Enable winner mode
+#+BEGIN_SRC emacs-lisp
+  (winner-mode 1)
+  (my-general-def
+    "wq" 'winner-undo
+    "we" 'winner-redo)
+>>>>>>> 9ae3d796a24ef28ae2058dab51116e6fbe880ddf
 #+END_SRC
 * Theme and modeline
 ** Zero-dark theme
@@ -278,6 +287,13 @@ Allows easy transition between windows using Shift+Arrows.
     (setq avy-background t)
     (my-general-def
       "SPC" 'avy-goto-char))
+#+END_SRC
+** Ace window
+#+BEGIN_SRC emacs-lisp
+  (use-package ace-window
+    :config
+    (my-general-def
+      "ww" 'ace-window))
 #+END_SRC
 ** Company
 #+BEGIN_SRC emacs-lisp
