@@ -86,7 +86,6 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq inferior-lisp-buffer "/usr/share/doc/clisp")
 #+END_SRC
-<<<<<<< HEAD
 ** Better copy paste
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
@@ -302,6 +301,8 @@ Allows easy transition between windows using Shift+Arrows.
 ** Ace window
 #+BEGIN_SRC emacs-lisp
   (use-package ace-window
+    :init
+    (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
     :config
     (my-general-def
       "ww" 'ace-window))
