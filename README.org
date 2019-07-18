@@ -158,6 +158,18 @@ A modeline that is aesthetically pleasing
 
   (add-hook 'term-mode-hook 'my/setup-term-mode)
 #+END_SRC
+** Swap term mode
+#+BEGIN_SRC emacs-lisp
+  (defun my/swap-term-mode ()
+    "Toggle between line and char mode."
+    (interactive)
+    (if (term-in-line-mode)
+	(term-char-mode)
+      (term-line-mode)))
+
+  (my-general-def
+    "'" '(my/swap-term-mode :which-key "swap-term-mode"))
+#+END_SRC
 * Help
 Packages and configs that help me with Emacs
 ** Which-key
