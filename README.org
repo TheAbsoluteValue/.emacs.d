@@ -90,12 +90,57 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
 #+END_SRC
-** Enable winner mode
+* Help
+Packages and configs that help me with Emacs
+** Which-key
 #+BEGIN_SRC emacs-lisp
-  (winner-mode 1)
-  (my-general-def
-    "wq" 'winner-undo
-    "we" 'winner-redo)
+  (use-package which-key
+    :init
+    (which-key-mode))
+#+END_SRC
+** General
+#+BEGIN_SRC emacs-lisp
+  (use-package general :ensure t
+      :config
+      (general-create-definer my-general-def
+	:prefix "SPC"
+	:keymaps 'override
+	:states '(normal visual emacs))
+      ;; Easy shortcuts
+      (my-general-def
+	;; Windows
+	"w" '(:ignore t :which-key "Windows")
+	"wm" 'delete-other-windows
+	"wd" 'delete-window
+	"w/" 'split-and-follow-vertically
+	"w-" 'split-and-follow-horizontally
+
+	;; Fun
+	"$" '(:ignore t :which-key "Fun")
+
+	;; Files
+	"f" '(:ignore t :which-key "Files")
+
+	;; Buffers
+	"b" '(:ignore t :which-key "Buffers")
+	"bd" 'kill-this-buffer
+
+	;; Applications
+	"a" '(:ignore t :which-key "Applications")
+	"ad" 'dired))
+#+END_SRC
+** Flycheck
+*** Base
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :init
+    (add-hook 'prog-mode-hook 'flycheck-mode))
+#+END_SRC
+*** Inline
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck-inline
+    :init
+    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
 #+END_SRC
 * Theme and modeline
 ** Zero-dark theme
@@ -168,58 +213,6 @@ A modeline that is aesthetically pleasing
 
   (my-general-def
     "'" '(my/swap-term-mode :which-key "swap-term-mode"))
-#+END_SRC
-* Help
-Packages and configs that help me with Emacs
-** Which-key
-#+BEGIN_SRC emacs-lisp
-  (use-package which-key
-    :init
-    (which-key-mode))
-#+END_SRC
-** General
-#+BEGIN_SRC emacs-lisp
-  (use-package general :ensure t
-      :config
-      (general-create-definer my-general-def
-	:prefix "SPC"
-	:keymaps 'override
-	:states '(normal visual emacs))
-      ;; Easy shortcuts
-      (my-general-def
-	;; Windows
-	"w" '(:ignore t :which-key "Windows")
-	"wm" 'delete-other-windows
-	"wd" 'delete-window
-	"w/" 'split-and-follow-vertically
-	"w-" 'split-and-follow-horizontally
-
-	;; Fun
-	"$" '(:ignore t :which-key "Fun")
-
-	;; Files
-	"f" '(:ignore t :which-key "Files")
-
-	;; Buffers
-	"b" '(:ignore t :which-key "Buffers")
-	"bd" 'kill-this-buffer
-
-	;; Applications
-	"a" '(:ignore t :which-key "Applications")
-	"ad" 'dired))
-#+END_SRC
-** Flycheck
-*** Base
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck
-    :init
-    (add-hook 'prog-mode-hook 'flycheck-mode))
-#+END_SRC
-*** Inline
-#+BEGIN_SRC emacs-lisp
-  (use-package flycheck-inline
-    :init
-    (add-hook 'flycheck-mode-hook #'flycheck-inline-mode))
 #+END_SRC
 * Org
 Any configs and packages relating to Org-mode
