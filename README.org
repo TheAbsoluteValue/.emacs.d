@@ -521,6 +521,17 @@ Functions and bindings that make Emacs easier to use for me
   (my-general-def
     "p'" #'projectile-term)
 #+END_SRC
+** Calc
+#+BEGIN_SRC emacs-lisp
+  (my-general-def
+    "ac" '(:ignore t :which-key "Calc")
+    "acq" #'quick-calc
+    "ack" #'calc-keypad
+    "acc" #'calc
+    "acb" #'full-calc
+    "ace" #'calc-embedded
+    "acw" #'calc-embedded-word)
+#+END_SRC
 * Languages
 Packages for specific languages
 ** React/JS
