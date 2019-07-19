@@ -95,8 +95,7 @@ Packages and configs that help me with Emacs
 ** Which-key
 #+BEGIN_SRC emacs-lisp
   (use-package which-key
-    :init
-    (which-key-mode))
+    :config (which-key-mode))
 #+END_SRC
 ** General
 #+BEGIN_SRC emacs-lisp
