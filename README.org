@@ -268,16 +268,6 @@ Vim keybindings are just too good
     :config
     (evil-multiedit-default-keybinds))
 #+END_SRC
-*** Collection
-#+BEGIN_SRC emacs-lisp
-  (use-package evil-collection
-    :init
-    (setq evil-want-keybinding nil)
-    :after evil
-    :config
-    (evil-collection-init)
-    (setq evil-want-keybinding t))
-#+END_SRC
 ** Windmove
 Allows easy transition between windows using Shift+Arrows.
 #+BEGIN_SRC emacs-lisp
