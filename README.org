@@ -596,3 +596,11 @@ Special packages that I use alongside other modes
       (eval-after-load 'css-mode
 	'(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))))
 #+END_SRC
+** Emmet
+#+BEGIN_SRC emacs-lisp
+  (use-package emmet-mode
+    :init
+    (add-hook 'sgml-mode-hook 'emmet-mode)
+    (add-hook 'css-mode-hook  'emmet-mode)
+    (add-hook 'rjsx-mode-hook  'emmet-mode))
+#+END_SRC
