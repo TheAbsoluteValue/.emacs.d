@@ -399,14 +399,11 @@ Allows easy transition between windows using Shift+Arrows.
       "psa" 'helm-projectile-ag)
     (helm-projectile-on))
 #+END_SRC
-# *** Ripgrep
-# Holding off on helm-rg for now...
-# #+BEGIN_SRC emacs-lisp
-#   (use-package helm-rg
-#     :config
-#     (my-general-def
-#       "/" #'helm-rg))
-# #+END_SRC
+*** Ripgrep
+Holding off on helm-rg for now...
+#+BEGIN_SRC emacs-lisp
+  (use-package helm-rg)
+#+END_SRC
 ** Treemacs
 Replacement for Neotree
 *** Import base
