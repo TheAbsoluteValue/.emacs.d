@@ -400,7 +400,6 @@ Allows easy transition between windows using Shift+Arrows.
     (helm-projectile-on))
 #+END_SRC
 *** Ripgrep
-Holding off on helm-rg for now...
 #+BEGIN_SRC emacs-lisp
   (use-package helm-rg)
 #+END_SRC
