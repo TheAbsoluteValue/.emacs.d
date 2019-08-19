@@ -82,10 +82,6 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq inhibit-startup-message t)
 #+END_SRC
-** Set inferior lisp module
-#+BEGIN_SRC emacs-lisp
-  (setq inferior-lisp-buffer "/usr/share/doc/clisp")
-#+END_SRC
 ** Better copy paste
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
@@ -567,6 +563,14 @@ Packages for specific languages
     :init
     (add-hook 'rust-mode-hook 'cargo-minor-mode))
 #+END_SRC
+** Lisp
+#+BEGIN_SRC emacs-lisp
+  (use-package slime
+    :config
+    (progn
+      (setq inferior-lisp-program "/usr/bin/sbcl")
+      (slime-setup)))
+#+END_SRC
 * Tools
 Special packages that I use alongside other modes
 ** RestClient
@@ -575,22 +579,6 @@ Special packages that I use alongside other modes
     :config
     (my-general-def
       "ar" 'restclient-mode))
-#+END_SRC
-** Web beautify
-#+BEGIN_SRC emacs-lisp
-  (use-package web-beautify
-    :config
-    (progn
-      (eval-after-load 'js2-mode
-	'(define-key js2-mode-map (kbd "C-c b") 'web-beautify-js))
-      (eval-after-load 'rjsx-mode
-	'(define-key rjsx-mode-map (kbd "C-c b") 'web-beautify-js))
-      (eval-after-load 'json-mode
-	'(define-key json-mode-map (kbd "C-c b") 'web-beautify-js))
-      (eval-after-load 'sgml-mode
-	'(define-key html-mode-map (kbd "C-c b") 'web-beautify-html))
-      (eval-after-load 'css-mode
-	'(define-key css-mode-map (kbd "C-c b") 'web-beautify-css))))
 #+END_SRC
 ** Emmet
 #+BEGIN_SRC emacs-lisp
