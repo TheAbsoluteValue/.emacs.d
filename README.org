@@ -1,4 +1,5 @@
-* My Emacs config
+[[./img/WEmacs.png]]
+* Will's Emacs (WEmacs)
 This file contains all the packages used in my emacs configuration in a nice and neat manner in order to prevent against Emacs bankruptcy.
 * General
 Some general changes to improve QOL using Emacs for me. Usually just modified values that are already built into Emacs.
@@ -164,7 +165,7 @@ A modeline that is aesthetically pleasing
       (setq dashboard-items '((recents  . 8)
 			      (projects . 8)))
       (setq dashboard-set-footer nil)
-      (setq dashboard-startup-banner "~/.emacs.d/img/dashLogo.png")
+      (setq dashboard-startup-banner "~/.emacs.d/img/WEmacs.png")
       (setq dashboard-banner-logo-title "")
       (setq dashboard-set-init-info nil)
       (dashboard-setup-startup-hook))
