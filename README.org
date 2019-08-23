@@ -522,10 +522,20 @@ Functions and bindings that make Emacs easier to use for me
 #+END_SRC
 * Languages
 Packages for specific languages
-** React/JS
+** JavaScript
+*** React
 #+BEGIN_SRC emacs-lisp
   (use-package rjsx-mode
     :init (add-to-list 'auto-mode-alist '("\\.js\\'" . rjsx-mode)))
+#+END_SRC
+** TypeScript
+*** Tide
+#+BEGIN_SRC emacs-lisp
+  (use-package tide
+    :after (typescript-mode company flycheck)
+    :hook ((typescript-mode . tide-setup)
+	   (typescript-mode . tide-hl-identifier-mode)
+	   (before-save . tide-format-before-save)))
 #+END_SRC
 ** Web
 #+BEGIN_SRC emacs-lisp
