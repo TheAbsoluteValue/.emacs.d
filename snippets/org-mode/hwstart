@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: Homework Template
+# key: hwstart
+# --
+
+#+OPTIONS: toc:nil
+#+OPTIONS: num:nil
+#+TITLE: $1
+#+AUTHOR: $0
