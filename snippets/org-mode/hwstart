@@ -3,7 +3,7 @@
 # key: hwstart
 # --
 
-#+OPTIONS: toc:nil
-#+OPTIONS: num:nil
 #+TITLE: $1
-#+AUTHOR: $0
+#+AUTHOR: $2
+#+OPTIONS: toc:nil num:nil
+$0
