@@ -230,7 +230,6 @@ Any configs and packages relating to Org-mode
   (add-hook 'org-mode-hook #'my/turn-off-company)
 #+END_SRC
 ** Add org babel languages
-*** Add to list
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages 'org-babel-load-languages
 			       (append org-babel-load-languages
