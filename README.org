@@ -230,11 +230,17 @@ Any configs and packages relating to Org-mode
   (add-hook 'org-mode-hook #'my/turn-off-company)
 #+END_SRC
 ** Add org babel languages
+*** Import extra languages
+#+BEGIN_SRC emacs-lisp
+  (use-package ob-translate)
+#+END_SRC
+*** Add languages
 #+BEGIN_SRC emacs-lisp
   (org-babel-do-load-languages 'org-babel-load-languages
 			       (append org-babel-load-languages
 				       '((C . t)
 					 (js . t)
+					 (translate . t)
 					 (lisp . t))))
 #+END_SRC
 * Text manipulation and navigation
@@ -440,6 +446,10 @@ Replacement for Neotree
     :config
     (my-general-def
       "$f" 'fireplace))
+#+END_SRC
+** Translate
+#+BEGIN_SRC emacs-lisp
+  (use-package google-translate)
 #+END_SRC
 * Convenience
 Functions and bindings that make Emacs easier to use for me
