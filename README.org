@@ -240,6 +240,7 @@ Any configs and packages relating to Org-mode
 				       '((C . t)
 					 (js . t)
 					 (translate . t)
+					 (python . t)
 					 (ditaa . t)
 					 (lisp . t))))
 #+END_SRC
