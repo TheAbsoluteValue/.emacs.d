@@ -637,7 +637,7 @@ Special packages that I use alongside other modes
 #+BEGIN_SRC emacs-lisp
   (use-package flyspell-correct)
   (use-package flyspell-correct-helm
-    :bind ("C-M-;" . flyspell-correct-wrapper)
+    :bind ("C-;" . flyspell-correct-wrapper)
     :init
     (setq flyspell-correct-interface #'flyspell-correct-helm))
 #+END_SRC
