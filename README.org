@@ -87,6 +87,11 @@ This will make way to use dashboard
 #+BEGIN_SRC emacs-lisp
   (setq x-select-enable-clipboard t)
 #+END_SRC
+** Set ispell language
+Good idea to install aspell-en using local package manager
+#+BEGIN_SRC emacs-lisp
+  (setq ispell-local-dictionary "en_US")
+#+END_SRC
 * Help
 Packages and configs that help me with Emacs
 ** Which-key
@@ -627,4 +632,12 @@ Special packages that I use alongside other modes
     (add-hook 'sgml-mode-hook 'emmet-mode)
     (add-hook 'css-mode-hook  'emmet-mode)
     (add-hook 'rjsx-mode-hook  'emmet-mode))
+#+END_SRC
+** Flyspell
+#+BEGIN_SRC emacs-lisp
+  (use-package flyspell-correct)
+  (use-package flyspell-correct-helm
+    :bind ("C-M-;" . flyspell-correct-wrapper)
+    :init
+    (setq flyspell-correct-interface #'flyspell-correct-helm))
 #+END_SRC
